@@ -67,13 +67,13 @@
 			return JSON.stringify(this.identity);
 		},
 
-		equal: function (identity) {
+		equal: function (identity, identityType) {
 			if (typeof(identity) === 'object') identity = JSON.stringify(identity);
 
 			return this.JSONidentity === identity;
 		},
 
-		diff: function (identity) {
+		diff: function (identity, identityType) {
 			var diff = {};
 
 			if (typeof(identity) === 'string') {
@@ -81,7 +81,7 @@
 			}
 
 			for (var attr in this.identity) {
-				if(this.identity[attr] != identity[attr]) {
+				if(JSON.stringify(this.identity[attr]) != JSON.stringify(identity[attr])) {
 					diff[attr] = {
 						_this: this.identity[attr],
 						_identity: identity[attr]
