@@ -4,6 +4,11 @@
 
 	var lucarne = {
 
+		// UA deff: Mozilla/[version] ([system and browser information]) [platform] ([platform details]) [extensions]
+		get UA () {
+			// Todo get UA informations
+		}
+
 		get screen () {
 			// clone window.screen object
 			var _screen = JSON.parse(JSON.stringify(w.screen));
@@ -70,7 +75,7 @@
 		equal: function (identity, identityType) {
 			if (typeof(identity) === 'object') identity = JSON.stringify(identity);
 
-			return this.JSONidentity === identity;
+			return (this['JSON'+identityType] || this.JSONidentity) === identity;
 		},
 
 		diff: function (identity, identityType) {
@@ -80,7 +85,7 @@
 				identity = JSON.parse(identity);
 			}
 
-			for (var attr in this.identity) {
+			for (var attr in (this[identityType] || this.identity)) {
 				if(JSON.stringify(this.identity[attr]) != JSON.stringify(identity[attr])) {
 					diff[attr] = {
 						_this: this.identity[attr],
