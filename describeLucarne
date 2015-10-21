@@ -1,0 +1,20 @@
+Starting from window object:
+
+	screen:
+		
+		devicePixelRatio: number // 1
+		screen.height: number // 1080
+		screen.width: number // 1920 
+		screen.colorDepth: number // 24
+		screen.pixelDepth: number // 24
+
+	device:
+
+		navigator.maxTouchPoints: number // 10
+
+	browser:
+
+		navigator.language: string // "fr"
+		navigator.languages: array[strings] // [en-US", "en", "fr-FR", "fr"]
+		navigator.plugins[i].names: string // "Chrome PDF Viewer"
+		navigator.MimeTypeArray[i].type: string // "application/pdf"
